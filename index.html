@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hover Intent</title>
+  <style type="text/css">
+    .hoverTarget {
+      background-color: lavender;
+      margin: 0 auto;
+      padding: 50px 0;
+      text-align: center;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hoverTarget">Hover Over Me</div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="hoverintent.new2.js"></script>
+  <script>
+
+
+$('.hoverTarget').on('mouseover', 150, function(){
+  $(this).html('Hovered!');
+  console.log('hover over!');
+});
+
+$('.hoverTarget').on('mouseout', 150, function(){
+  $(this).html('Hover Over Me');
+  console.log('hover out!');
+});
+
+  </script>
+</body>
+</html>
