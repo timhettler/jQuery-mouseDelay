@@ -37,13 +37,11 @@
 
 
 $('.hoverTarget').on('mouseover', function(){
-  $(this).find('.menu').html('Hovered!');
-  console.log('hover over!');
+  $(this).find('.menu').addClass('is-menu-active');
 });
 
-$('.hoverTarget').on('mouseout', 1000, function(){
-  $(this).html('Hover Over Me');
-  console.log('hover out!');
+$('.hoverTarget').on('mouseout', function(){
+  $(this).find('.menu').removeClass('is-menu-active');
 });
 
   </script>

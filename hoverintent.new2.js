@@ -1,4 +1,5 @@
 (function ($) {
+    "use strict";
 
     $.hoverDelayOptions = {
         mouseover : 150,
@@ -34,8 +35,8 @@
 
                 var $self = $(this),
                     data = $self.data('hoverDelay'),
-                    nextState = (event.type === 'mouseover') ? 1 : 0;
-                    delay = (typeof event.data === 'number') ? event.data : $.hoverDelayOptions[event.type],
+                    nextState = (event.type === 'mouseover') ? 1 : 0,
+                    delay = (typeof event.data === 'number') ? event.data : $.hoverDelayOptions[event.type];
 
                 data.timer_id = clearTimeout(data.timer_id);
 
@@ -50,8 +51,8 @@
                     );})(this, arguments);
 
                 }
-            }
+            };
         }
-    }
+    };
 
 })(jQuery);
