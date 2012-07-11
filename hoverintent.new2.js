@@ -36,9 +36,6 @@
                     nextState = (event.type === 'mouseover' || event.type === 'mouseenter') ? 1 : 0,
                     delay = (typeof event.data === 'number') ? event.data : $.fn.hover.defaultSettings[event.type];
 
-
-                console.log(event,event.type);
-
                 data.timer_id = clearTimeout(data.timer_id);
 
                 if (data.state !== nextState) {
