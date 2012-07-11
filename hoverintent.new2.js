@@ -1,4 +1,4 @@
-(function ($) {
+ (function ($) {
     "use strict";
 
     $.hoverDelayOptions = {
@@ -28,10 +28,6 @@
             var old_handler = handleObj.handler;
 
             handleObj.handler = function ( event ) {
-
-                console.log(arguments);
-
-                if ( this !== event.target ) { return; }
 
                 var $self = $(this),
                     data = $self.data('hoverDelay'),
