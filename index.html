@@ -35,14 +35,15 @@
   <script src="hoverintent.new2.js"></script>
   <script>
 
-
-$('.hoverTarget').on('mouseover', function(){
-  $(this).find('.menu').addClass('is-menu-active');
-});
-
-$('.hoverTarget').on('mouseout', function(){
-  $(this).find('.menu').removeClass('is-menu-active');
-});
+$('.hoverTarget').hover(
+  function(event){
+    console.log(event);
+    $(this).find('.menu').addClass('is-menu-active');
+  },
+  function(){
+    $(this).find('.menu').removeClass('is-menu-active');
+  }
+);
 
   </script>
 </body>
