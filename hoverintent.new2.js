@@ -2,10 +2,8 @@
     "use strict";
 
     $.fn.hover.defaultSettings = {
-        mouseover : 150,
-        mouseout : 150,
-        mouseenter : 150,
-        mouseleave : 150
+        in : 150,
+        out : 150,
     };
 
     $.event.special.mouseover = $.event.special.mouseout = {
@@ -23,6 +21,8 @@
         teardown: function () {
             $(this)
                 .removeData('hoverDelay');
+
+            return false;
         },
 
         add: function ( handleObj ) {
@@ -33,16 +33,16 @@
 
                 var $self = $(this),
                     data = $self.data('hoverDelay'),
-                    nextState = (event.type === 'mouseover' || event.type === 'mouseenter') ? 1 : 0,
-                    delay = (typeof event.data === 'number') ? event.data : $.fn.hover.defaultSettings[event.type];
+                    direction = (event.type === 'mouseover' || event.type === 'mouseenter') ? 'in' : 'out',
+                    delay = (typeof event.data === 'number') ? event.data : $.fn.hover.defaultSettings[direction];
 
                 data.timer_id = clearTimeout(data.timer_id);
 
-                if (data.state !== nextState) {
+                if (data.state !== direction) {
 
                     data.timer_id = (function(obj, args) { return setTimeout(
                         function(){
-                            data.state = nextState;
+                            data.state = direction;
                             old_handler.apply(obj, args);
                         },
                         delay
