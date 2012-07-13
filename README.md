@@ -9,7 +9,9 @@ This project was inspired by Brian Cherne's [hoverIntent plug-in](http://cherne.
 
 * If the plug-in fails to load or you decide to remove it, the site won't break; events will just go back to firing immediately.
 
-In addition to rewriting the plug-in to utilize special events, I've also simplified the concept considerably. HoverIntent uses mousespeed as the determining factor that triggers the enter & leave events. This works fine, but there is a lot of overhead involved with this. Mousemove events have to be bound & unbound each time a mouseenter or leave occurs in order to watch the cursor. This actually leads to some quirky behavior where a user could move their mouse within an element and the enter event suspends indefinitely. It's something only a bored web developer would do, sure, but I think it illustrates that the HoverIntent plug-in is over-engineered. mouseDelay was built to solve a simple problem: *"When a cursor enters or leaves an element, wait a set amount of time. After that, if the cursor is still inside or outside the element, fire the appropriate event."*
+In addition to rewriting the plug-in to utilize special events, I've also simplified the concept. hoverIntent uses mouse speed as the determining factor that triggers the enter & leave events. This works fine, but there is a lot of overhead involved with this. Mousemove events have to be bound & unbound each time a mouseenter or leave occurs in order to watch the cursor. This actually leads to some quirky behavior where a user could move their mouse within an element and the enter event suspends indefinitely. The functions associated with tracking and comparing mouse position also adds a considerable amout of code. For these reasons, I think the hoverIntent plug-in is over-engineered for most use-cases.
+
+mouseDelay is built to solve a simple problem: *"When a cursor enters or leaves an element, wait a set amount of time. After that, if the cursor is still inside or outside the element, fire the appropriate event."*
 
 Usage
 =====
