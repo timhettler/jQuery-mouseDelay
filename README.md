@@ -16,45 +16,45 @@ Usage
 
 Include mouseDelay before the closing `</body>` element:
 
-    ```html
-    <script src="/path/to/mouseDelay.min.js"></script>
-    ```
+```html
+<script src="/path/to/mouseDelay.min.js"></script>
+```
 
 Create `mouseup`, `mousedown`, `mouseenter`, or `mouseleave` event handlers as normal.
 
-    ```js
-    $('.tab')
-        .on('mouseenter', showTab)
-        .on('mouseleave', hideTab);
-    ```
+```javascript
+$('.tab')
+    .on('mouseenter', showTab)
+    .on('mouseleave', hideTab);
+```
 
 By default, a delay of **150ms** is applied to all affected events. You can adjust this value globally by directly editing `$.fn.hover.defaultSettings`, or overwriting it in your code conditionally. To set a custom delay value for an individual event handler, supply the amount of delay in milliseconds as event data:
 
-    ```js
-    $('.tab')
-        .on('mouseenter', 250, showTab)
-        .on('mouseleave', 500, hideTab);
-    ```
+```javascript
+$('.tab')
+    .on('mouseenter', 250, showTab)
+    .on('mouseleave', 500, hideTab);
+```
 
 mouseDelay also overwrites jQuery's default hover plug-in to allow for an extra "delay" argument.
 
-    ```js
-    $('.tab').hover(
-        showTab,
-        hideTab,
-        250
-    );
-    ```
+```javascript
+$('.tab').hover(
+    showTab,
+    hideTab,
+    250
+);
+```
 
 If you want different delay values for the over & out events, you can supply them as a JSON object:
 
-    ```js
-    $('.tab').hover(
-        showTab,
-        hideTab,
-        {
-            'over' : 250,
-            'out' : 500
-        }
-    );
-    ```
+```javascript
+$('.tab').hover(
+    showTab,
+    hideTab,
+    {
+        'over' : 250,
+        'out' : 500
+    }
+);
+```
