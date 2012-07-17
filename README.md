@@ -13,6 +13,11 @@ Instead of simply porting the hoverIntent plug-in to utilize special events, I'v
 
 mouseDelay is built to solve a simple problem: *"When a cursor enters or leaves an element, wait a set amount of time. After that, if the cursor is still inside or outside the element, fire the appropriate event."*
 
+Demo
+====
+
+http://timhettler.github.com/jQuery-mouseDelay/
+
 Usage
 =====
 
