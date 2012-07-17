@@ -5,7 +5,7 @@
 
         setup: function () {
             $(this)
-                .data('hoverDelay', {
+                .data('mouseDelay', {
                     state : 0,
                     timer_id : 0
                 });
@@ -15,7 +15,7 @@
 
         teardown: function () {
             $(this)
-                .removeData( 'hoverDelay' );
+                .removeData( 'mouseDelay' );
 
             return false;
         },
@@ -27,7 +27,7 @@
             handleObj.handler = function ( event ) {
 
                 var $self = $(this),
-                    data = $self.data( 'hoverDelay' ),
+                    data = $self.data( 'mouseDelay' ),
                     direction = ( event.type === 'mouseover' || event.type === 'mouseenter' ) ? 'over' : 'out',
                     delay = ( typeof event.data === 'number' ) ? event.data : $.fn.hover.defaultSettings[direction];
 

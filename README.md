@@ -60,3 +60,8 @@ $('.tab').hover(
     }
 );
 ```
+
+Requirements
+============
+
+This plug-in requires jQuery 1.4.2 or higher. It has been tested with jQuery 1.7.2.
