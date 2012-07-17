@@ -3,13 +3,13 @@ mouseDelay
 
 This project was inspired by Brian Cherne's [hoverIntent plug-in](http://cherne.net/brian/resources/jquery.hoverIntent.html). I've applied the concept using [jQuery special events](http://benalman.com/news/2010/03/jquery-special-events/) instead of writing it as a jQuery plug-in. Special events have a few advantages over plug-ins for this type of functionality. Namely:
 
-* Special events not only allow you to create new events, they also allow you to augment default events. In this case, I'm changing the behavior of the 'mouseover' & 'mouseout' events so that they delay triggering for a set amount of time.
+* Special events allow you to create new events, but they also allow you to augment default events. In this case, the behavior of the 'mouseover' & 'mouseout' events are changed so that there's a delay before they're triggered.
 
-* Since we're changing existing events instead of creating new ones, you can add the special event code to any project and it will "just work" without having to convert all your mouse event handlers to a proprietary syntax.
+* Since we're changing existing events instead of creating new ones, you can add mouseDelay to any project and it will "just work" without having to convert all your mouse event handlers to a proprietary syntax.
 
 * If the plug-in fails to load or you decide to remove it, the site won't break; events will just go back to firing immediately.
 
-In addition to rewriting the plug-in to utilize special events, I've also simplified the concept. hoverIntent uses mouse speed as the determining factor that triggers the enter & leave events. This works fine, but there is a lot of overhead involved with this. Mousemove events have to be bound & unbound each time a mouseenter or leave occurs in order to watch the cursor. This actually leads to some quirky behavior where a user could move their mouse within an element and the enter event suspends indefinitely. The functions associated with tracking and comparing mouse position also adds a considerable amout of code. For these reasons, I think the hoverIntent plug-in is over-engineered for most use-cases.
+Instead of simply porting the hoverIntent plug-in to utilize special events, I've simplified the concept dramatically. hoverIntent uses mouse speed as the determining factor that triggers the enter & leave events. This works fine, but there is a lot of overhead involved with this. Mousemove events have to be bound & unbound each time a mouseenter or leave occurs in order to watch the cursor. This leads to some quirky behavior where a user could move their mouse within an element and the enter event suspends indefinitely. The functions associated with tracking and comparing mouse position also adds a considerable amout of code. For these reasons, I think the hoverIntent plug-in is over-engineered for most use-cases.
 
 mouseDelay is built to solve a simple problem: *"When a cursor enters or leaves an element, wait a set amount of time. After that, if the cursor is still inside or outside the element, fire the appropriate event."*
 
