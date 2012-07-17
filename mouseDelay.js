@@ -55,7 +55,7 @@
         var settings = {};
 
         if ( typeof fnOut !== "function" ) {
-            delay = fnOut
+            delay = fnOut;
             fnOut = fnOver;
         }
 
