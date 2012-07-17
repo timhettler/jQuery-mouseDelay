@@ -27,7 +27,7 @@ Include mouseDelay before the closing `</body>` element:
 <script src="/path/to/mouseDelay.min.js"></script>
 ```
 
-Create `mouseup`, `mousedown`, `mouseenter`, or `mouseleave` event handlers as normal.
+Create `mouseover`, `mouseout`, `mouseenter`, or `mouseleave` event handlers as normal.
 
 ```javascript
 $('.tab')
