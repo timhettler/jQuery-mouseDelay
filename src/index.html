@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mouseDelay</title>
+  <style type="text/css">
+    body {
+      font: 16px/1.5 Helvetica;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .island {
+      box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+      border-radius: 5px;
+      padding: 25px;
+      width: 200px;
+
+    }
+
+    .dropdown {
+      background-color: Salmon;
+      cursor: pointer;
+      margin: 25px auto;
+    }
+
+    .dropdown-label {
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    }
+
+    .dropdown-menu {
+      display: none;
+      padding-top: 25px;
+    }
+
+    .dropdown-menuitem {
+      border-bottom: 1px solid white;
+      padding: 5px;
+      -ms-transition: background-color 200ms;
+      -moz-transition: background-color 200ms;
+      -o-transition: background-color 200ms;
+      -webkit-transition: background-color 200ms;
+      transition: background-color 200ms;
+    }
+
+    .dropdown-menuitem:hover {
+      background-color: rgba(255,255,255,.2);
+    }
+
+    .dropdown-menuitem:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .dropdown-menuitem > a {
+      color: RoyalBlue;
+      display: block;
+      text-decoration: none;
+    }
+
+    .is-dropdown-active .dropdown-menu {
+      display: block;
+    }
+
+    .controls {
+      background-color: PapayaWhip;
+      left: 25px;
+      position: fixed;
+      top: 25px;
+    }
+
+    .controls > input {
+      box-sizing: border-box;
+      display: block;
+      font-size: 100%;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="dropdown island">
+    <div class="dropdown-label">Clown Supplies</div>
+    <ul class="dropdown-menu">
+      <li class="dropdown-menuitem"><a href="#">Balloons</a></li>
+      <li class="dropdown-menuitem"><a href="#">Face Paint</a></li>
+      <li class="dropdown-menuitem"><a href="#">Oversized Shoes</a></li>
+      <li class="dropdown-menuitem"><a href="#">False Noses</a></li>
+    </ul>
+  </div>
+  <div class="controls island">
+    <label for="over">In delay:</label>
+    <input type="number" name="over" id="over" value="150" />
+    <label for="out">Out delay:</label>pages
+    <input type="number" name="out" id="out" value="150" />
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="mouseDelay.js"></script>
+  <script>
+    $('.dropdown').on('mouseenter mouseleave', function () {
+      $(this).toggleClass('is-dropdown-active', !$(this).hasClass('is-dropdown-active'));
+    });
+
+    $('.controls').on('change','input',function (event) {
+      var value = parseInt(this.value,10);
+      if(typeof value === "number") {
+        $.fn.hover.defaultSettings[this.name] = value;
+      }
+    });
+  </script>
+</body>
+</html>

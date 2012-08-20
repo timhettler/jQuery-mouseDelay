@@ -1,4 +1,4 @@
- (function ($) {
+(function ($) {
     "use strict";
 
     $.event.special.mouseover = $.event.special.mouseout = {
@@ -43,7 +43,7 @@
                             },
                             delay
                         );
-                    } )( this, arguments );
+                    } ( this, arguments ) );
 
                 }
             };
@@ -73,4 +73,4 @@
         out  : 150
     };
 
-})(jQuery);
+} ( jQuery ) );

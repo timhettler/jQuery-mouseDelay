@@ -1,0 +1,12 @@
+{
+  "name" : "mouseDelay",
+  "description" : "A modification of jQuery mouse events that allow for a delay before the event fires.",
+  "keywords" : ["jQuery", "special events", "plug-in", "mouse"],
+  "homepage" : "https://github.com/timhettler/jQuery-mouseDelay",
+  "repository" : {"type": "git", "url": "git://github.com/timhettler/jQuery-mouseDelay.git"},
+  "licenses" : [{"type" : "MIT License"}, {"type" : "GPL"}],
+  "main" : "mouseDelay.js",
+  "dependencies": {"jquery": ">= 1.4.2"},
+  "author" : {"name" : "Tim Hettler", "twitter" : "https://twitter.com/timhettler"},
+  "version" : "0.1.0"
+}
