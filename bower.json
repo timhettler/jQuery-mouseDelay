@@ -1,0 +1,23 @@
+{
+  "name": "jQuery-mouseDelay",
+  "version": "1.0.0",
+  "homepage": "https://github.com/timhettler/jQuery-mouseDelay",
+  "authors": [
+    "timhettler <me+github@timhettler.com>"
+  ],
+  "description": "Recode of the hoverIntent plugin that utilizes special events to add functionality to the 'mouseover' and 'mouseout' events, rather than replace them.",
+  "main": "dist/mouseDelay.min.js",
+  "keywords": [
+    "javascript",
+    "jQuery",
+    "hoverIntent"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
