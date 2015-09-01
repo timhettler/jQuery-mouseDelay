@@ -31,21 +31,31 @@
                     direction = ( event.type === 'mouseover' || event.type === 'mouseenter' ) ? 'over' : 'out',
                     delay = ( typeof event.data === 'number' ) ? event.data : $.fn.hover.defaultSettings[direction];
 
-                data.timer_id = clearTimeout( data.timer_id );
-
-                if ( data.state !== direction ) {
-
-                    data.timer_id = ( function (obj, args) {
-                        return setTimeout(
-                            function () {
-                                data.state = direction;
-                                old_handler.apply(obj, args);
-                            },
-                            delay
-                        );
-                    } ( this, arguments ) );
-
+                if ( typeof data.timer_id !== 'undefined' ) {
+                    clearTimeout( data.timer_id );
                 }
+
+                if ( data.state === direction ) {
+                    return;
+                }
+
+                if ( delay === 0 ) {
+                    data.state = direction;
+                    old_handler.apply(this, arguments);
+
+                    return;
+                }
+
+                data.timer_id = ( function (obj, args) {
+                    return setTimeout(
+                        function () {
+                            data.state = direction;
+                            old_handler.apply(obj, args);
+                        },
+                        delay
+                    );
+                } ( this, arguments ) );
+
             };
         }
     };
