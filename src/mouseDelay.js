@@ -1,5 +1,5 @@
 (function ($) {
-    "use strict";
+    'use strict';
 
     $.event.special.mouseover = $.event.special.mouseout = {
 
@@ -31,21 +31,31 @@
                     direction = ( event.type === 'mouseover' || event.type === 'mouseenter' ) ? 'over' : 'out',
                     delay = ( typeof event.data === 'number' ) ? event.data : $.fn.hover.defaultSettings[direction];
 
-                data.timer_id = clearTimeout( data.timer_id );
-
-                if ( data.state !== direction ) {
-
-                    data.timer_id = ( function (obj, args) {
-                        return setTimeout(
-                            function () {
-                                data.state = direction;
-                                old_handler.apply(obj, args);
-                            },
-                            delay
-                        );
-                    } ( this, arguments ) );
-
+                if ( typeof data.timer_id !== 'undefined' ) {
+                    clearTimeout( data.timer_id );
                 }
+
+                if ( data.state === direction ) {
+                    return;
+                }
+
+                if ( delay === 0 ) {
+                    data.state = direction;
+                    old_handler.apply(this, arguments);
+
+                    return;
+                }
+
+                data.timer_id = ( function (obj, args) {
+                    return setTimeout(
+                        function () {
+                            data.state = direction;
+                            old_handler.apply(obj, args);
+                        },
+                        delay
+                    );
+                } ( this, arguments ) );
+
             };
         }
     };
@@ -54,12 +64,12 @@
 
         var settings = {};
 
-        if ( typeof fnOut !== "function" ) {
+        if ( typeof fnOut !== 'function' ) {
             delay = fnOut;
             fnOut = fnOver;
         }
 
-        if ( typeof delay === "number") {
+        if ( typeof delay === 'number') {
             settings.over = settings.out = delay;
         } else {
             settings = $.extend( {}, $.fn.hover.defaultSettings, delay );
