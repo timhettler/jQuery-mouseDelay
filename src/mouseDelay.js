@@ -1,5 +1,5 @@
 (function ($) {
-    "use strict";
+    'use strict';
 
     $.event.special.mouseover = $.event.special.mouseout = {
 
@@ -64,12 +64,12 @@
 
         var settings = {};
 
-        if ( typeof fnOut !== "function" ) {
+        if ( typeof fnOut !== 'function' ) {
             delay = fnOut;
             fnOut = fnOver;
         }
 
-        if ( typeof delay === "number") {
+        if ( typeof delay === 'number') {
             settings.over = settings.out = delay;
         } else {
             settings = $.extend( {}, $.fn.hover.defaultSettings, delay );
